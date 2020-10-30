@@ -17,8 +17,7 @@ gem 'jquery', '~> 0.0.1'
 gem 'popper_js', '~> 1.11', '>= 1.11.1'
 gem 'jquery-rails', '~> 4.4'
 gem 'jquery-ui-rails'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
