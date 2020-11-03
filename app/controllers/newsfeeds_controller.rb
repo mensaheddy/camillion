@@ -9,6 +9,11 @@ class NewsfeedsController < ApplicationController
     end
   end
 
+  def index
+    @newsfeeds = Newsfeed.all # Ideally should be paginated
+    render json: @newsfeeds, each_serializer: NewsfeedSerializer
+  end
+
   def newsfeed_params
     params.require(:newsfeed).permit(:title, :content)
   end

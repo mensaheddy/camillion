@@ -2,8 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'active_model_serializers', '~> 0.10.2'
 gem 'bootstrap', '~> 4.5.0'
 gem 'devise'
 gem 'faker'
