@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe NewsfeedController, type: :controller do
+RSpec.describe NewsfeedsController, type: :controller do
 
   describe "create" do
     subject(:post_to_create) do
