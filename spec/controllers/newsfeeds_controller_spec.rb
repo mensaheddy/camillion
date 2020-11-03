@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe NewsfeedsController, type: :controller do
+  let(:response_body) { JSON.parse(response.body) }
 
   describe "create" do
     subject(:post_to_create) do
@@ -25,7 +26,21 @@ RSpec.describe NewsfeedsController, type: :controller do
 
       it "render json" do
         post_to_create
-        expect(JSON.parse(response.body)).to eq({ "success" => true })
+        expect(response_body).to eq({ "success" => true })
+      end
+    end
+  end
+
+  describe "index" do
+    context "success" do
+      let!(:post_to_create) { create(:newsfeed, title: "it alive", content: "Loong text") }
+
+      it "render newfeed in json" do
+        get :index
+        expect(response_body.first).to include(
+          "content" => "Loong text",
+          "title" => "it alive"
+        )
       end
     end
   end

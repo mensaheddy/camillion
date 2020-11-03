@@ -7,11 +7,12 @@ gem 'bootstrap', '~> 4.5.0'
 gem 'devise'
 gem 'faker'
 gem "font-awesome-rails"
-gem "figaro"
+gem 'figaro'
 gem 'geocoder'
-gem "pry"
+gem 'pry'
 gem 'redis', '~> 4.0'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
+gem 'rails-controller-testing'
 gem 'jquery', '~> 0.0.1'
 gem 'popper_js', '~> 1.11', '>= 1.11.1'
 gem 'jquery-rails', '~> 4.4'
