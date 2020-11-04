@@ -11,7 +11,7 @@ class CreateNewsfeedService
     if newsfeed.save
       Outcome.Success(newsfeed)
     else
-      Outcome.Failure(newsfeed.errors.full_messsage)
+      Outcome.Failure(newsfeed.errors.full_messages)
     end
   end
 end

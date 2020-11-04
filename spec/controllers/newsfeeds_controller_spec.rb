@@ -5,17 +5,10 @@ RSpec.describe NewsfeedsController, type: :controller do
 
   describe "create" do
     subject(:post_to_create) do
-      post :create, params: newsfeed_params
+      post :create, params: { newsfeed: newsfeed_params }
     end
 
-    let(:newsfeed_params) do
-      {
-        newsfeed:{
-          title: "Title",
-          content: "long text"
-        }
-     }
-    end
+    let(:newsfeed_params) { attributes_for(:newsfeed) }
 
     context "success" do
       it "create newsfeed" do
@@ -26,7 +19,25 @@ RSpec.describe NewsfeedsController, type: :controller do
 
       it "render json" do
         post_to_create
-        expect(response_body).to eq({ "success" => true })
+        expect(response_body).to eq({ "success" => false })
+      end
+
+      it "response status 200" do
+        expect(response).to be_ok
+      end
+    end
+
+    context "Failure" do
+      let(:newsfeed_params) { attributes_for(:newsfeed, title: nil) }
+
+      it "response status 400" do
+        post_to_create
+        expect(response.status).to be(422)
+      end
+
+      it "render json" do
+        post_to_create
+        expect(response_body).to eq("errors"=>["Title can't be blank"])
       end
     end
   end
