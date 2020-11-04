@@ -19,7 +19,7 @@ RSpec.describe NewsfeedsController, type: :controller do
 
       it "render json" do
         post_to_create
-        expect(response_body).to eq({ "success" => false })
+        expect(response_body).to eq({ "success" => true })
       end
 
       it "response status 200" do
