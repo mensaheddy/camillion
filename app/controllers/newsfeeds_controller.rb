@@ -1,5 +1,6 @@
 class NewsfeedsController < ApplicationController
   def create
+    authorize(Newsfeed)
     outcome = CreateNewsfeedService.new(newsfeed_params).call
 
     if outcome.success?
@@ -11,6 +12,7 @@ class NewsfeedsController < ApplicationController
 
   def index
     @newsfeeds = Newsfeed.all # Ideally should be paginated or scaled someway
+    authorize(@newsfeeds)
     render json: @newsfeeds, each_serializer: NewsfeedSerializer
   end
 
