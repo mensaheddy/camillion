@@ -1,4 +1,6 @@
 class NewsfeedsController < ApplicationController
+  before_action :authenticate_admin, only: [:create]
+
   def create
     outcome = CreateNewsfeedService.new(newsfeed_params).call
 
