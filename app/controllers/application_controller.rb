@@ -1,13 +1,14 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!
+  include Pundit
 
+  before_action :authenticate_user!
   private
 
   def authenticate_user!
-    true # TODO
+    current_user # TODO: Implement authentication
   end
 
-  def authenticate_admin!
-    true # Todo
+  def current_user
+    @current_user ||= User.last # TODO
   end
 end
